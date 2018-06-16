@@ -38,6 +38,8 @@ reviews_new = reviews.loc[reviews.country.notnull() & reviews.variety.notnull()]
 将两列数据相加????????????Q7
 ```
 pd.Series([], index = )
+```
+
 
 知识点
 =====
