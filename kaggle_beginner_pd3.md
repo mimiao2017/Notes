@@ -5,3 +5,42 @@ PandasLesson3_summary functions & map worbook
 ```
 review.points.median()
 ```
+求country这列中所有的国家
+```
+reviews.country.unique()
+#返回的是一个array
+```
+求country这列中出现次数最多的国家
+```
+reviews.country.value_counts()
+```
+remap,将price这列remap为price-median
+```
+mp = reviews.price.median()
+reviews.price.map(lambda v:v-mp)
+```
+按某种综合指标对wine进行排序，找到最高分的wine
+```
+reviews.loc[(reviews.points/reviews.price).idxmax()].title
+#找到性价比（points/price）最高（idxmax）的红酒，并显示名字（title）
+```
+统计某个关键词在description这列出现的次数
+``` pandas
+t_wine=reviews.description.map(lambda r:"tropical" in r).value_counts()
+#关键词tropical，生成的t_wine是Series类型,格式如下：
+#False     378221
+#True      908
+```
+清除数据中country列和variety列中的NaN，得到新数据集
+```
+reviews_new = reviews.loc[reviews.country.notnull() & reviews.variety.notnull()]
+```
+将两列数据相加????????????Q7
+```
+pd.Series([], index = )
+
+知识点
+=====
+* idxmax 与 argmax
+* map()
+* `!= 'NaN'`与`.notnull()`的区别
