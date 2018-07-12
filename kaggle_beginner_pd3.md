@@ -39,7 +39,32 @@ reviews_new = reviews.loc[reviews.country.notnull() & reviews.variety.notnull()]
 ```
 pd.Series([], index = )
 ```
+map与apply
 
+| map | apply |
+| ------- | ------ |
+| input:Series| input:DataFrame|
+| `dataframe.points.map(lambda p:p-means)` | `datafram.apply(function,column='points') ` |   
+|-|-|
+
+注：
+`def function(srs):
+  srs.points = srs.points - review_points_mean 
+  return srs`
+  
+一些快捷操作：
+=====
+* Series之间互相加减或者一个Series同时减去某个数：
+
+  `df.points-menas`
+  
+  `df.points-df.extra`
+  
+* Series之间的+ ，-，<，>，==和字符串拼接等:
+
+  `df.country+'-'+df.points`
+  
+  `Italy-29.5`
 
 知识点
 =====
